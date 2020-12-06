@@ -69,8 +69,7 @@ Ext.define("SL.view.registration.InformationWindow",{
         }, {
             text: 'რაიონი',
             name: 'district',
-<<<<<<< HEAD
-=======
+
             renderer:function (val){
                 const field = this;
                 if(!val) return '';
@@ -81,7 +80,6 @@ Ext.define("SL.view.registration.InformationWindow",{
                 if(!regionRec) return val;
                 return regionRec.get("name");
             },
->>>>>>> origin/master
             fieldLabel:"რაიონი",
             renderer:function (val){
                 const field = this;
@@ -115,7 +113,16 @@ Ext.define("SL.view.registration.InformationWindow",{
                 text: 'კავშირის ტიპი',
                 dataIndex: 'type',
                 flex: 1,
-                // renderer: 'relationTypeRenderer',
+                renderer: function (val){
+                    const field = this;
+                    if(!val) return '';
+                    const ok=field.up("information")
+                    const relations=ok.getController().getStore("relationTypes");
+                    const typeRec=relations.getById(val);
+
+                    if(!typeRec) return val;
+                    return typeRec.get("name");
+                },
             }, {
                 text: 'სახელი',
                 dataIndex: 'firstName',
