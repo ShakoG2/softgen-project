@@ -129,7 +129,7 @@ Ext.define("SL.view.registration.InformationWindow",{
                 flex: 1,
             }, {
                 text: 'გვარი',
-                dataIndex: 'lastName',
+                dataIndex: 'lastName', //fsdfsdfsdfdsfds
                 flex: 1,
             }]
         }]
