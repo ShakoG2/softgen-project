@@ -80,17 +80,6 @@ Ext.define("SL.view.registration.InformationWindow",{
                 if(!regionRec) return val;
                 return regionRec.get("name");
             },
-            fieldLabel:"რაიონი",
-            renderer:function (val){
-                const field = this;
-                if(!val) return '';
-                const ok=field.up("information")
-                const districts=ok.getController().getStore("districts");
-                const districtRec=districts.getById(val);
-
-                if(!districtRec) return val;
-                return districtRec.get("name");
-            },
         }, {
             text: 'დაბადების თარიღი',
             name: 'birthDate',
